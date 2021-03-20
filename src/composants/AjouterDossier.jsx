@@ -7,7 +7,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { useState } from 'react';
 import { TwitterPicker } from 'react-color';
 
-export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
+export default function AjouterDossier({ ouvert, setOuvert, gererAjout }) {
   const [nom, setNom] = useState('');
   const [couverture, setCouverture] = useState('');
   const [couleur, setCouleur] = useState('#537169');
@@ -20,7 +20,7 @@ export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
 
   return (
     <div className="AjouterDossier">
-      <Dialog open={ouvert} onClose={()=>setOuvert(false)} aria-labelledby="form-dialog-title">
+      <Dialog open={ouvert} onClose={() => setOuvert(false)} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Ajouter un dossier</DialogTitle>
         <DialogContent>
           <TextField
@@ -42,19 +42,19 @@ export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
             onChange={(e) => setCouverture(e.target.value)}
             defaultValue={couverture}
           />
-          <TwitterPicker 
-            width="100%" 
-            triangle="hide" 
+          <TwitterPicker
+            width="100%"
+            triangle="hide"
             onChangeComplete={(couleur, e) => setCouleur(couleur.hex)}
             color={couleur}
-            colors= {['#809BCE', '#95B8D1', '#B8E0D2', '#d6eadf','#eac4d5','#8f8389']}
+            colors={['#809BCE', '#95B8D1', '#B8E0D2', '#d6eadf', '#eac4d5', '#8f8389']}
           />
         </DialogContent>
-        <DialogActions style={{margin:'1em 1em 1em 0'}}>
-          <Button onClick={()=>{setOuvert(false); viderChamps()}} style={{backgroundColor:'darkred', color:'white'}}>
+        <DialogActions style={{ margin: '1em 1em 1em 0' }}>
+          <Button onClick={() => { setOuvert(false); viderChamps() }} style={{ backgroundColor: 'darkred', color: 'white' }}>
             Annuler
           </Button>
-          <Button onClick={() => {nom !== '' && gererAjout(nom, couverture, couleur); viderChamps(); }} style={{backgroundColor:'green', color:'white'}}>
+          <Button onClick={() => { nom !== '' && gererAjout(nom, couverture, couleur); viderChamps(); }} style={{ backgroundColor: 'green', color: 'white' }}>
             Ajouter
           </Button>
         </DialogActions>

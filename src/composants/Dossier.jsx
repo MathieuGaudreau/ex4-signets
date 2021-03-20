@@ -1,4 +1,4 @@
-import './Dossier.scss'; 
+import './Dossier.scss';
 import { IconButton } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
 import couvertureDefault from '../images/couverture.webp'
 
-export default function Dossier({id, nom, couleur, datemodif, couverture}) {
+export default function Dossier({ id, nom, couleur, datemodif, couverture }) {
   const [PosMenu, setPosMenu] = React.useState(null);
   const menuOuvrir = (event) => {
     setPosMenu(event.currentTarget);
@@ -18,12 +18,12 @@ export default function Dossier({id, nom, couleur, datemodif, couverture}) {
   };
 
   return (
-    <article className="Dossier" style={{backgroundColor: couleur}}>
+    <article className="Dossier" style={{ backgroundColor: couleur }}>
       <div className="couverture">
         <IconButton className="deplacer" aria-label="déplacer" disableRipple={true}>
           <SortIcon />
         </IconButton>
-        <img src={couverture ? couverture : couvertureDefault} alt={nom}/>
+        <img src={couverture ? couverture : couvertureDefault} alt={nom} />
       </div>
       <div className="info">
         <h2>{nom}</h2>
@@ -32,15 +32,15 @@ export default function Dossier({id, nom, couleur, datemodif, couverture}) {
       <IconButton className="modifier" aria-label="modifier" size="small">
         <MoreVertIcon onClick={menuOuvrir} />
         <Menu
-        id="simple-menu"
-        anchorEl={PosMenu}
-        keepMounted
-        open={Boolean(PosMenu)}
-        onClose={menuFermer}
-      >
-        <MenuItem onClick={menuFermer}>Modifier</MenuItem>
-        <MenuItem onClick={menuFermer}>Supprimer</MenuItem>
-      </Menu>
+          id="simple-menu"
+          anchorEl={PosMenu}
+          keepMounted
+          open={Boolean(PosMenu)}
+          onClose={menuFermer}
+        >
+          <MenuItem onClick={menuFermer}>Modifier</MenuItem>
+          <MenuItem onClick={menuFermer}>Supprimer</MenuItem>
+        </Menu>
       </IconButton>
     </article>
   );
@@ -52,7 +52,7 @@ export default function Dossier({id, nom, couleur, datemodif, couverture}) {
  * @returns String date formatée en français
  */
 function formaterDate(d) {
-  const dateJs = d ? new Date(d.seconds*1000) : new Date();
+  const dateJs = d ? new Date(d.seconds * 1000) : new Date();
   const mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
   return `${dateJs.getDate()} ${mois[dateJs.getMonth()]} ${dateJs.getFullYear()}`;
 }
