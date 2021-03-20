@@ -43,7 +43,7 @@ export default function ListeDossiers({utilisateur, etatDossiers}) {
         <li className="listeVide" >
           
           <h1>Votre liste de dossiers est vide</h1>
-          <h2>: (</h2>
+          <h2>&#128549;</h2>
         </li>
       }
     </ul>
