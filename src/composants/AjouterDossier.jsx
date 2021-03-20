@@ -50,7 +50,7 @@ export default function AjouterDossier({ouvert, setOuvert, gererAjout}) {
             colors= {['#809BCE', '#95B8D1', '#B8E0D2', '#d6eadf','#eac4d5','#8f8389']}
           />
         </DialogContent>
-        <DialogActions>
+        <DialogActions style={{margin:'1em 1em 1em 0'}}>
           <Button onClick={()=>{setOuvert(false); viderChamps()}} style={{backgroundColor:'darkred', color:'white'}}>
             Annuler
           </Button>
